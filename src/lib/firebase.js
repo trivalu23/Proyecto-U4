@@ -1,1 +1,19 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCXu4krSX5BzeiGvTKxcVw9gTwSV-KkeAc",
+  authDomain: "proyecto-fitlife-u4.firebaseapp.com",
+  projectId: "proyecto-fitlife-u4",
+  storageBucket: "proyecto-fitlife-u4.firebasestorage.app",
+  messagingSenderId: "330516709810",
+  appId: "1:330516709810:web:ac0da804cb94e7dbe6e4ab",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
