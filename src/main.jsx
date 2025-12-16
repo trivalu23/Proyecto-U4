@@ -17,7 +17,6 @@ import LaunchCampaign from "./pages/LaunchCampaign";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 
-
 // Rutas de cliente y admin
 import ClienteHome from "./components/ProtectedRoute";
 import AdminRoute from "./pages/AdminRoute";
@@ -37,42 +36,36 @@ import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />, // Layout principal con Header + Footer
+    element: <App />,
     children: [
       { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/mision-vision", element: <MisionVision /> },
       { path: "/inscripcion", element: <Inscripcion /> },
-      { path: "/catalogo", element: <Catalog /> }, // Catálogo normal
+      { path: "/catalogo", element: <Catalog /> },
       { path: "/login", element: <Login /> },
       { path: "/perfil", element: <Profile /> },
       { path: "/promociones", element: <LaunchCampaign /> },
-       
-
-      // Rutas de cliente
       { path: "/cliente", element: <ClienteHome /> },
     ],
   },
-
-  // 🔐 RUTAS ADMIN
   {
     path: "/admin",
     element: (
       <AdminRoute>
-        <Dashboard /> {/* Dashboard con sidebar y Outlet */}
+        <Dashboard />
       </AdminRoute>
     ),
     children: [
-      { path: "dashboard", element: <PlanList /> }, // contenido inicial
+      { path: "dashboard", element: <PlanList /> },
       { path: "planes", element: <PlanList /> },
       { path: "crear-plan", element: <PlanEditor /> },
       { path: "editar-plan/:id", element: <PlanEditor /> },
-          { path: "monitoreo", element: <Monitoreo /> },
-  { path: "equipo", element: <Equipo /> },
-  {path: "ajustes", element: <Ajustes /> },
-  {path: "comunidad", element: <Comunidad /> },
-      // Aquí puedes agregar más secciones del admin
+      { path: "monitoreo", element: <Monitoreo /> },
+      { path: "equipo", element: <Equipo /> },
+      { path: "ajustes", element: <Ajustes /> },
+      { path: "comunidad", element: <Comunidad /> },
     ],
   },
 ]);
